@@ -1,0 +1,2 @@
+### Hexlet tests and linter status:
+[![Actions Status](https://github.com/blacksmokezip/python-oop-project-101/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/blacksmokezip/python-oop-project-101/actions)
