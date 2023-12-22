@@ -1,4 +1,9 @@
-from validator.inner_validators import StringValidator, NumberValidator, ListValidator
+from validator.inner_validators import (
+    StringValidator,
+    NumberValidator,
+    ListValidator,
+    DictValidator
+)
 
 
 class Validator:
@@ -11,4 +16,7 @@ class Validator:
         pass
 
     class list(ListValidator):
+        pass
+
+    class dict(DictValidator):
         pass

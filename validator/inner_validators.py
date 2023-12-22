@@ -84,6 +84,8 @@ class NumberValidator:
         if self.req:
             if data is None:
                 return False
+        elif data is None:
+            return True
 
         if self.is_positive:
             if data < 0:
@@ -126,6 +128,33 @@ class ListValidator:
 
         if self.size:
             if len(data) != self.size:
+                return False
+
+        return True
+
+
+class DictValidator:
+    """Validates 'dict' type data"""
+
+    shape_: dict
+
+    def __init__(self, shape_=None):
+        self.shape_ = shape_
+
+    def shape(self, shape_):
+        """Sets the requirements for validation"""
+
+        self.shape_ = shape_
+        return self.__class__(shape_=shape_)
+
+    def is_valid(self, data):
+        """Checks if dict is valid"""
+
+        if not self.shape_:
+            return False
+
+        for key, value in data.items():
+            if not self.shape_[key].is_valid(value):
                 return False
 
         return True
